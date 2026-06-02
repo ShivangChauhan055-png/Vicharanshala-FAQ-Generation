@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useSearchStore } from '../../store/uiStore';
 import { searchApi } from '../../services/search.service';
+import { questionsApi } from '../../services/questions.service';
 
 interface SearchBarProps {
   autoFocus?: boolean;

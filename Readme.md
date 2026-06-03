@@ -1,10 +1,10 @@
 <div align="center">
 
-# 🧠 Vicharanshala — Crowd-Sourced FAQ Generation Platform
+#  Vicharanshala — Crowd-Sourced FAQ Generation Platform
 
-**The intelligent, community-driven FAQ platform powered by collective intelligence.**
+**A community-driven FAQ platform where users can ask questions, share answers, and help build a searchable knowledge base together.**
 
-*Search. Ask. Answer. Upvote. Together.*
+*Search. Ask. Answer. Improve*
 
 ---
 
@@ -50,19 +50,22 @@
 
 ---
 
-## 📚 Project Description
+##  Project Description
 
-**Vicharanshala** (विचारशाला — *"House of Thoughts"* in Sanskrit) is a full-stack, community-powered FAQ platform where knowledge is created, refined, and validated by the community — not a single gatekeeper.
+**Vicharanshala** (विचारशाला — *"House of Thoughts"* in Sanskrit) is a community-driven FAQ platform built to help people ask questions, share knowledge, and find answers more easily.
 
-Whether you're managing FAQs for a developer community, a university course, a SaaS product, or an open-source project, Vicharanshala gives your audience a structured, searchable, and self-improving knowledge base powered by real usage signals.
+Instead of relying on a single administrator to manage all content, Vicharanshala allows the community to contribute, improve, and organize information together. Users can ask questions, post answers, vote on helpful content, and discover relevant discussions through search and recommendations.
 
-The platform tracks **what users actually search for** and surfaces those questions first — making the "Popular Right Now" section genuinely meaningful rather than just showing the newest posts.
+The platform is designed for developer communities, educational groups, open-source projects, and any organization that wants a structured and searchable knowledge base.
 
-> 💡 *Vicharanshala is production-ready: it has JWT refresh token rotation, rate limiting, MongoDB text search, Docker Compose support, and a full admin moderation dashboard.*
+To make content discovery more useful, Vicharanshala tracks search activity and user engagement. Features like **Popular Right Now** highlight topics that people are actively searching for, helping users find relevant information faster.
+
+The project includes authentication, moderation tools, full-text search, role-based access control, analytics, and a complete admin dashboard, making it suitable for both learning purposes and real-world deployments.
+
 
 ---
 
-## 🚨 Problem Statement
+##  Problem Statement
 
 Most FAQ systems suffer from the same fundamental flaws:
 
@@ -76,7 +79,7 @@ Most FAQ systems suffer from the same fundamental flaws:
 
 ---
 
-## ✅ Solution Overview
+##  Solution Overview
 
 Vicharanshala solves these problems through:
 
@@ -89,61 +92,73 @@ Vicharanshala solves these problems through:
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-### 👤 User Features
-- 🔐 **JWT Authentication** with access token (15m) + refresh token (7d) rotation
-- 👤 **Profile Management** with avatar, bio, and reputation display
-- 🏆 **Reputation System** — earn points through upvotes and accepted answers
-- 📊 **Contribution Tracking** — per-user question and answer counts
+### User Features
 
-### ❓ FAQ Management
-- ✍️ **Create & Edit FAQs** with rich Markdown support (`@uiw/react-md-editor`)
-- 🗂️ **Category System** — 8 built-in categories, each with icon and color
-- 🏷️ **Tag-Based Organization** — up to 5 tags per question, filterable
-- 🔄 **Status Workflow** — `open → closed → deleted` with moderator controls
+* JWT-based authentication with access and refresh tokens
+* User profiles with avatar, bio, and reputation
+* Reputation system based on community interactions
+* Track questions asked and answers contributed
 
-### 🔍 Search & Discovery
-- ⚡ **Full-Text Search** — MongoDB `$text` index with field weights (title: 10, tags: 5, description: 1)
-- 🔥 **Popular Right Now** — powered by real search frequency data (last 7 days)
-- 📈 **Multi-Signal Trending Score** — votes + views + search clicks + answers + recency decay
-- 🧩 **Filter by Category, Tags, Sort order** (recent, popular, trending, views, unanswered)
-- 🔁 **Recent Searches** — per-user personalized search history
-- 📣 **Report Unanswered Searches** — users flag missing knowledge gaps
+### FAQ Management
 
-### 🗳️ Voting System
-- 👍 **Upvote / Downvote** on both questions and answers
-- 📊 **Vote Score** = `upvotes − downvotes` for clean ranking
-- ☑️ **Accept Answer** — question authors can mark the best answer
+* Create and edit FAQs using Markdown
+* Organize content with categories and tags
+* Filter questions by category or tags
+* Question status management for moderation
 
-### 🛡️ Moderation
-- 📋 **Admin Dashboard** — view stats, manage users, view unanswered searches
-- 🚦 **Role System** — `user | moderator | admin`
-- 🗑️ **Soft Delete** — questions are marked deleted, not hard-removed
-- 🧹 **Moderator Controls** — edit or close any question
+### Search & Discovery
 
-### 📊 Analytics
-- 🔢 **Site-wide stats** — total questions, answers, users, votes
-- 🔍 **Trending search queries** — what users are searching (last 7 days)
-- 🖱️ **Search Click Tracking** — records when a user clicks a result from search
-- 👀 **View & Click Counts** — per-question engagement tracking
+* Full-text search powered by MongoDB
+* Popular and trending questions based on user activity
+* Search history for logged-in users
+* Filter and sort content by relevance, popularity, views, and more
+* Report unanswered searches to highlight missing topics
+
+### Community Interaction
+
+* Upvote and downvote questions and answers
+* Accept answers to mark the best solution
+* Community-driven ranking of content
+
+### Moderation & Administration
+
+* Admin dashboard for platform management
+* Role-based access control (User, Moderator, Admin)
+* Soft-delete functionality for content moderation
+* Moderator tools for editing and managing questions
+
+### Analytics
+
+* Platform-wide statistics and activity tracking
+* Trending search queries
+* Search click tracking
+* Question views and engagement metrics
+
+---
+
+## Screenshots
+
+Screenshots will be added soon.
+
+Run the project locally using:
+
+```bash
+npm run dev
+```
+
+| Page            | Description                                                 |
+| --------------- | ----------------------------------------------------------- |
+| Home            | Search interface, popular questions, and most-voted content |
+| Search          | Full-text search results and filters                        |
+| Question Detail | Question discussion, answers, voting, and related content   |
+| Browse FAQs     | Browse questions by category, tags, and sorting options     |
+| Profile         | User profile, reputation, and contribution history          |
+| Admin Dashboard | Statistics, user management, and moderation tools           |
 
 ---
 
-## 📸 Screenshots
-
-> *Screenshots coming soon — run locally with `npm run dev` to see the UI.*
-
-| Page | Description |
-|---|---|
-| 🏠 Home | Hero search, "Popular Right Now" (search-signal ranked), "Most Voted" |
-| 🔍 Search | Full-text results with click tracking |
-| ❓ Question Detail | Rich markdown, voting, accepted answers, related questions sidebar |
-| 📚 Browse FAQs | Filter/sort by category, tags, trending, recent, unanswered |
-| 👤 Profile | User stats, reputation, contributions |
-| 🛠️ Admin Dashboard | Site stats, top contributors, unanswered search reports |
-
----
 
 ## 🏗️ System Architecture
 
@@ -185,7 +200,7 @@ Vicharanshala solves these problems through:
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Frontend
 
@@ -336,7 +351,7 @@ Vicharanshala-FAQ-Generation/
 
 ---
 
-## 🚀 Installation Guide
+##  Installation Guide
 
 ### Prerequisites
 
@@ -365,7 +380,7 @@ This installs dependencies for the root, `server/`, and `client/` in one command
 
 ---
 
-## 🔐 Environment Variables
+##  Environment Variables
 
 ### Server — `server/.env`
 
@@ -408,11 +423,11 @@ VITE_APP_NAME=Vicharanshala
 VITE_APP_DESCRIPTION=The intelligent, community-driven FAQ platform
 ```
 
-> ⚠️ **Never commit `.env` files.** They are excluded by `.gitignore`.
+>  **Never commit `.env` files.** They are excluded by `.gitignore`.
 
 ---
 
-## 🏃 Running Locally
+##  Running Locally
 
 ### Option A — One Command (Recommended)
 
@@ -425,9 +440,9 @@ This runs the backend and frontend concurrently using `concurrently`.
 
 | Service | URL |
 |---|---|
-| 🖥️ Frontend | http://localhost:5173 |
-| 🔌 Backend API | http://localhost:5001/api/v1 |
-| 🩺 Health Check | http://localhost:5001/health |
+|  Frontend | http://localhost:5173 |
+|  Backend API | http://localhost:5001/api/v1 |
+|  Health Check | http://localhost:5001/health |
 
 ### Option B — Seed the Database
 
@@ -448,9 +463,9 @@ npm run seed:all
 
 | Role | Email | Password |
 |---|---|---|
-| 🔴 Admin | `admin@wiseflow.dev` | `admin123` |
-| 🟡 Moderator | `mod@wiseflow.dev` | `mod123` |
-| 🟢 User | `user@wiseflow.dev` | `user123` |
+|  Admin | `admin@wiseflow.dev` | `admin123` |
+|  Moderator | `mod@wiseflow.dev` | `mod123` |
+|  User | `user@wiseflow.dev` | `user123` |
 
 ### Option C — Docker Compose
 
@@ -470,35 +485,37 @@ docker compose down -v
 
 ---
 
-## 📡 API Endpoints
+##  API Endpoints
 
 Base URL: `http://localhost:5001/api/v1`
 
-### 🔐 Authentication
+### Authentication
 
-| Method | Endpoint | Auth | Description |
-|---|---|---|---|
-| `POST` | `/auth/register` | — | Register new user |
-| `POST` | `/auth/login` | — | Login, returns access + refresh token |
-| `POST` | `/auth/refresh` | — | Rotate refresh token |
-| `POST` | `/auth/logout` | ✅ | Invalidate session |
-| `GET` | `/auth/me` | ✅ | Get current user |
+| Method | Endpoint         | Auth Required | Description                                       |
+| ------ | ---------------- | ------------- | ------------------------------------------------- |
+| `POST` | `/auth/register` | No            | Create a new user account                         |
+| `POST` | `/auth/login`    | No            | Sign in and receive access and refresh tokens     |
+| `POST` | `/auth/refresh`  | No            | Generate a new access token using a refresh token |
+| `POST` | `/auth/logout`   | Yes           | End the current user session                      |
+| `GET`  | `/auth/me`       | Yes           | Retrieve details of the authenticated user        |
 
-### ❓ Questions
 
-| Method | Endpoint | Auth | Description |
-|---|---|---|---|
-| `GET` | `/questions` | Optional | List questions (filter, sort, paginate) |
-| `POST` | `/questions` | ✅ | Create a new question |
-| `GET` | `/questions/trending` | — | Questions sorted by trendingScore |
-| `GET` | `/questions/popular` | — | Questions sorted by voteScore |
-| `GET` | `/questions/most-searched` | — | Questions ranked by search frequency (last 7d) |
-| `GET` | `/questions/:id` | Optional | Get single question |
-| `PATCH` | `/questions/:id` | ✅ | Update question (owner or mod) |
-| `DELETE` | `/questions/:id` | ✅ | Soft-delete question |
-| `GET` | `/questions/:id/related` | — | Related questions (category + tags) |
-| `POST` | `/questions/:id/view` | — | Increment view + click count |
-| `POST` | `/questions/:id/search-click` | — | Track search-result click |
+### Questions
+
+| Method   | Endpoint                      | Auth Required | Description                                                                  |
+| -------- | ----------------------------- | ------------- | ---------------------------------------------------------------------------- |
+| `GET`    | `/questions`                  | Optional      | Retrieve a list of questions with filtering, sorting, and pagination support |
+| `POST`   | `/questions`                  | Yes           | Create a new question                                                        |
+| `GET`    | `/questions/trending`         | No            | Get questions sorted by trending score                                       |
+| `GET`    | `/questions/popular`          | No            | Get questions sorted by vote score                                           |
+| `GET`    | `/questions/most-searched`    | No            | Retrieve questions based on search frequency from the last 7 days            |
+| `GET`    | `/questions/:id`              | Optional      | Retrieve details of a specific question                                      |
+| `PATCH`  | `/questions/:id`              | Yes           | Update a question (owner or moderator only)                                  |
+| `DELETE` | `/questions/:id`              | Yes           | Soft-delete a question                                                       |
+| `GET`    | `/questions/:id/related`      | No            | Retrieve related questions based on category and tags                        |
+| `POST`   | `/questions/:id/view`         | No            | Record a question view                                                       |
+| `POST`   | `/questions/:id/search-click` | No            | Record a click from search results                                           |
+
 
 **Query parameters for `GET /questions`:**
 
@@ -509,48 +526,50 @@ Base URL: `http://localhost:5001/api/v1`
 ?page=1&limit=10
 ```
 
-### 💬 Answers
+### Answers
 
-| Method | Endpoint | Auth | Description |
-|---|---|---|---|
-| `GET` | `/answers/question/:questionId` | — | Get all answers for a question |
-| `POST` | `/answers` | ✅ | Post an answer |
-| `PATCH` | `/answers/:id/accept` | ✅ | Accept an answer (question author) |
-| `DELETE` | `/answers/:id` | ✅ | Delete answer (owner or mod) |
+| Method   | Endpoint                        | Auth Required | Description                                       |
+| -------- | ------------------------------- | ------------- | ------------------------------------------------- |
+| `GET`    | `/answers/question/:questionId` | No            | Retrieve all answers for a specific question      |
+| `POST`   | `/answers`                      | Yes           | Submit a new answer                               |
+| `PATCH`  | `/answers/:id/accept`           | Yes           | Mark an answer as accepted (question author only) |
+| `DELETE` | `/answers/:id`                  | Yes           | Delete an answer (owner or moderator only)        |
 
-### 🗳️ Votes
+### Votes
 
-| Method | Endpoint | Auth | Description |
-|---|---|---|---|
-| `POST` | `/votes/question/:id` | ✅ | Upvote/downvote a question |
-| `GET` | `/votes/question/:id` | ✅ | Get user's vote on a question |
-| `POST` | `/votes/answer/:id` | ✅ | Upvote/downvote an answer |
+| Method | Endpoint              | Auth Required | Description                                    |
+| ------ | --------------------- | ------------- | ---------------------------------------------- |
+| `POST` | `/votes/question/:id` | Yes           | Upvote or downvote a question                  |
+| `GET`  | `/votes/question/:id` | Yes           | Retrieve the current user's vote on a question |
+| `POST` | `/votes/answer/:id`   | Yes           | Upvote or downvote an answer                   |
 
-### 🔍 Search
 
-| Method | Endpoint | Auth | Description |
-|---|---|---|---|
-| `GET` | `/search?q=...` | Optional | Full-text search |
-| `GET` | `/search/trending` | — | Top queries (last 7 days) |
-| `GET` | `/search/recent` | ✅ | User's recent search history |
-| `POST` | `/search/report-unanswered` | Optional | Flag a search with no results |
+### Search
 
-### 📂 Categories
+| Method | Endpoint                    | Auth Required | Description                                                     |
+| ------ | --------------------------- | ------------- | --------------------------------------------------------------- |
+| `GET`  | `/search?q=...`             | Optional      | Perform a full-text search across questions and related content |
+| `GET`  | `/search/trending`          | No            | Retrieve the most searched queries from the last 7 days         |
+| `GET`  | `/search/recent`            | Yes           | Retrieve the authenticated user's recent search history         |
+| `POST` | `/search/report-unanswered` | Optional      | Report a search query that returned no relevant results         |
 
-| Method | Endpoint | Auth | Description |
-|---|---|---|---|
-| `GET` | `/categories` | — | List all categories |
-| `GET` | `/categories/:slug` | — | Get category by slug |
-| `POST` | `/categories` | 🔴 Admin | Create category |
-| `PATCH` | `/categories/:id` | 🔴 Admin | Update category |
+### Categories
 
-### 🛠️ Admin
+| Method  | Endpoint            | Auth Required | Description                                   |
+| ------- | ------------------- | ------------- | --------------------------------------------- |
+| `GET`   | `/categories`       | No            | Retrieve all available categories             |
+| `GET`   | `/categories/:slug` | No            | Retrieve details of a category using its slug |
+| `POST`  | `/categories`       | Admin         | Create a new category                         |
+| `PATCH` | `/categories/:id`   | Admin         | Update an existing category                   |
 
-| Method | Endpoint | Auth | Description |
-|---|---|---|---|
-| `GET` | `/admin/stats` | 🔴 Admin | Site-wide statistics |
-| `GET` | `/admin/unanswered` | 🔴 Admin | Top unanswered search queries |
-| `GET` | `/admin/users` | 🔴 Admin | List all users |
+### Admin
+
+| Method | Endpoint            | Auth Required | Description                                      |
+| ------ | ------------------- | ------------- | ------------------------------------------------ |
+| `GET`  | `/admin/stats`      | Admin         | Retrieve platform-wide statistics and metrics    |
+| `GET`  | `/admin/unanswered` | Admin         | View unanswered search queries reported by users |
+| `GET`  | `/admin/users`      | Admin         | Retrieve a list of registered users              |
+
 
 **Example — Search Request:**
 
@@ -574,7 +593,7 @@ curl -X POST http://localhost:5001/api/v1/questions \
 
 ---
 
-## 🗄️ Database Schema
+##  Database Schema
 
 ### `users`
 
@@ -635,7 +654,7 @@ curl -X POST http://localhost:5001/api/v1/questions \
 
 ---
 
-## 🔄 User Workflow
+##  User Workflow
 
 ```
 1. Register / Login
@@ -662,7 +681,7 @@ curl -X POST http://localhost:5001/api/v1/questions \
 
 ---
 
-## 🛡️ Admin Workflow
+##  Admin Workflow
 
 ```
 Admin Dashboard
@@ -678,23 +697,24 @@ Admin Dashboard
 
 ---
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
-| Feature | Priority | Description |
-|---|---|---|
-| 🤖 AI FAQ Suggestions | High | Use an LLM to auto-suggest FAQ answers for unanswered searches |
-| 🔁 Duplicate Detection | High | Semantic similarity check before a question is posted |
-| 🔔 Real-Time Notifications | Medium | Socket.IO for answer alerts, vote notifications |
-| 🌐 Multi-Language Support | Medium | i18n for Hindi + English (fits the Vicharanshala vision) |
-| 🏅 Gamification | Medium | Badges for milestone contributions |
-| 📥 Import / Export | Low | CSV/JSON export of entire FAQ knowledge base |
-| 🌙 Dark Mode Toggle | Low | Already design-token ready, needs UI switch |
-| 🔗 FAQ Collections | Low | Curate topic-specific FAQ bundles (e.g., "React Bootcamp FAQs") |
-| 📱 Mobile App | Future | React Native client using the same REST API |
+| Feature                      | Priority | Description                                                        |
+| ---------------------------- | -------- | ------------------------------------------------------------------ |
+| AI-Assisted FAQ Suggestions  | High     | Suggest possible answers for unanswered questions using AI models  |
+| Duplicate Question Detection | High     | Identify similar questions before they are posted                  |
+| Real-Time Notifications      | Medium   | Notify users about answers, votes, and activity updates            |
+| Multi-Language Support       | Medium   | Support content in multiple languages, including Hindi and English |
+| Gamification                 | Medium   | Introduce badges, achievements, and contribution milestones        |
+| Import / Export              | Low      | Export and import FAQ data in CSV or JSON format                   |
+| Dark Mode                    | Low      | Add a theme switch for light and dark modes                        |
+| FAQ Collections              | Low      | Organize related FAQs into curated topic-based collections         |
+| Mobile Application           | Future   | Dedicated mobile app built on the existing API                     |
+
 
 ---
 
-## 🔒 Security Considerations
+##  Security Considerations
 
 The platform implements multiple layers of defense:
 
@@ -712,7 +732,7 @@ The platform implements multiple layers of defense:
 
 ---
 
-## ⚡ Performance Optimizations
+##  Performance Optimizations
 
 | Optimization | Details |
 |---|---|
@@ -727,7 +747,7 @@ The platform implements multiple layers of defense:
 
 ---
 
-## 🚢 Deployment Guide
+##  Deployment Guide
 
 ### Deploy with Docker (any VPS / Cloud VM)
 
@@ -775,7 +795,7 @@ MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/wisef
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are what make open-source communities thrive. Any contribution is **greatly appreciated**.
 
@@ -820,18 +840,24 @@ We follow [Conventional Commits](https://www.conventionalcommits.org/):
 | `test:` | Adding/updating tests |
 | `chore:` | Build process, deps, config |
 
-### What to Contribute
+### How to Contribute
 
-- 🐛 Bug fixes
-- ✨ New features from the [Future Enhancements](#-future-enhancements) list
-- 📖 Documentation improvements
-- 🌐 Translations
-- 🎨 UI/UX improvements
-- ✅ Tests
+We welcome contributions of all kinds. Here are a few ways you can help:
+
+* Fix bugs and improve existing functionality
+* Work on features listed in the [Future Enhancements](#future-enhancements) section
+* Improve documentation and project guides
+* Add translations and language support
+* Enhance the user interface and user experience
+* Write or improve test coverage
+* Refactor code to improve readability and maintainability
+
+Every contribution, whether big or small, helps make the project better.
+
 
 ---
 
-## 📜 Code of Conduct
+##  Code of Conduct
 
 This project follows the [Contributor Covenant](https://www.contributor-covenant.org/) Code of Conduct.
 
@@ -843,7 +869,7 @@ This project follows the [Contributor Covenant](https://www.contributor-covenant
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the **MIT License**.
 
@@ -863,25 +889,7 @@ See [LICENSE](LICENSE) for the full text.
 
 ---
 
-## 👨‍💻 Authors
-
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://github.com/aftab-ansari2005">
-        <img src="https://github.com/aftab-ansari2005.png" width="80" style="border-radius:50%"/><br/>
-        <b>Aftab Ansari</b>
-      </a><br/>
-      <sub>Lead Developer & Maintainer</sub>
-    </td>
-  </tr>
-</table>
-
-*Want to be listed here? [Contribute](#-contributing) to the project!*
-
----
-
-## 🙏 Acknowledgements
+##  Acknowledgements
 
 - [MongoDB](https://www.mongodb.com) — for the excellent `$text` search and aggregation pipeline that powers the "most searched" algorithm
 - [TanStack Query](https://tanstack.com/query) — for making server-state management feel effortless

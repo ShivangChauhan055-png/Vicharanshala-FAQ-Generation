@@ -71,11 +71,11 @@ Most FAQ systems suffer from the same fundamental flaws:
 
 | Problem | Impact |
 |---|---|
-| 🔒 **Admin bottleneck** | Only one person maintains FAQs; knowledge goes stale |
-| 🔍 **Undiscoverable content** | Great answers get buried; no signal of what's actually useful |
-| 📊 **No quality signal** | All FAQs look equal regardless of accuracy or helpfulness |
-| 🗂️ **Poor organization** | FAQs aren't categorized, tagged, or searchable |
-| 👥 **No community ownership** | Users can't improve answers or flag outdated content |
+|  **Admin bottleneck** | Only one person maintains FAQs; knowledge goes stale |
+|  **Undiscoverable content** | Great answers get buried; no signal of what's actually useful |
+|  **No quality signal** | All FAQs look equal regardless of accuracy or helpfulness |
+|  **Poor organization** | FAQs aren't categorized, tagged, or searchable |
+|  **No community ownership** | Users can't improve answers or flag outdated content |
 
 ---
 

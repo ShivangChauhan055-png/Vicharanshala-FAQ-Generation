@@ -160,7 +160,7 @@ npm run dev
 ---
 
 
-## 🏗️ System Architecture
+##  System Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────┐

@@ -463,9 +463,9 @@ npm run seed:all
 
 | Role | Email | Password |
 |---|---|---|
-| 🔴 Admin | `admin@samagama.dev` | `admin123` |
-| 🟡 Moderator | `mod@samagama.dev` | `mod123` |
-| 🟢 User | `user@samagama.dev` | `user123` |
+| Admin | `admin@samagama.dev` | `admin123` |
+| Moderator | `mod@samagama.dev` | `mod123` |
+| User | `user@samagama.dev` | `user123` |
 
 ### Option C — Docker Compose
 

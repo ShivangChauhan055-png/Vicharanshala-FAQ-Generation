@@ -6,6 +6,7 @@ import { Category } from '../models/Category';
 import { Question } from '../models/Question';
 import { Answer } from '../models/Answer';
 import { User } from '../models/User';
+import bcrypt from 'bcryptjs';
 
 const FAQ_FILE_PATH = path.join(__dirname, '../../../FAQ.txt');
 
@@ -25,12 +26,14 @@ async function seed() {
   // Ensure admin user exists to author the seed data
   let admin = await User.findOne({ role: 'admin' });
   if (!admin) {
+    const adminHash = await bcrypt.hash('admin123', 12);
     admin = await User.create({
       username: 'admin',
       email: 'admin@samagama.dev',
-      password: 'admin',
+      passwordHash: adminHash,
       role: 'admin',
-      isVerified: true
+      bio: 'Samagama platform administrator',
+      reputation: 5000,
     });
   }
 

@@ -37,24 +37,29 @@ const CategoriesPage = () => {
             <motion.div
               key={cat._id}
               variants={{ hidden: { opacity: 0, scale: 0.95 }, show: { opacity: 1, scale: 1 } }}
+              className="h-full"
             >
               <Link
                 to={`/categories/${cat.slug}`}
-                className="block bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-6 hover:-translate-y-1 transition-all duration-300 cursor-pointer group text-center"
+                className="flex flex-col h-full bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-6 hover:-translate-y-1 transition-all duration-300 cursor-pointer group text-center justify-between"
                 style={{ boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05), 0 10px 40px -10px rgba(0,0,0,0.12)' }}
               >
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4"
-                  style={{ background: `${cat.color}22` }}
-                >
-                  <span className="material-symbols-outlined text-2xl" style={{ color: cat.color }}>{cat.icon}</span>
+                <div>
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 flex-shrink-0"
+                    style={{ background: `${cat.color}22` }}
+                  >
+                    <span className="material-symbols-outlined text-2xl" style={{ color: cat.color }}>{cat.icon}</span>
+                  </div>
+                  <h3 className="font-bold text-on-surface mb-1 group-hover:text-primary transition-colors line-clamp-2 text-sm">{cat.name}</h3>
+                  <p className="text-xs text-on-surface-variant mb-2">
+                    {cat.questionCount} {cat.questionCount === 1 ? 'question' : 'questions'}
+                  </p>
                 </div>
-                <h3 className="font-bold text-on-surface mb-1 group-hover:text-primary transition-colors">{cat.name}</h3>
-                <p className="text-xs text-on-surface-variant">
-                  {cat.questionCount} {cat.questionCount === 1 ? 'question' : 'questions'}
-                </p>
                 {cat.description && (
-                  <p className="text-xs text-on-surface-variant mt-2 line-clamp-2">{cat.description}</p>
+                  <p className="text-xs text-on-surface-variant mt-auto line-clamp-2 pt-2 border-t border-outline-variant/10 flex-grow flex items-center justify-center min-h-[2.5rem]">
+                    {cat.description}
+                  </p>
                 )}
               </Link>
             </motion.div>

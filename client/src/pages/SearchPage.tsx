@@ -3,6 +3,7 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useQuery, useMutation } from '@tanstack/react-query';
 import { motion, AnimatePresence } from 'framer-motion';
 import SearchBar from '../components/search/SearchBar';
+import CategoryTabs from '../components/search/CategoryTabs';
 import QuestionCard from '../components/questions/QuestionCard';
 import { QuestionsGridSkeleton, EmptyState } from '../components/common';
 import { searchApi } from '../services/search.service';
@@ -16,9 +17,11 @@ const getHighlightedTextParts = (text: string, query: string) => {
   const normalized = query.trim();
   if (!normalized) return undefined;
 
-  const tokens = Array.from(new Set(normalized.split(/\s+/).map((token) => escapeRegex(token).toLowerCase()))).filter(Boolean);
-  if (!tokens.length) return undefined;
+  // Extract pure words, stripping punctuation, to highlight exactly what the user typed
+  const words = normalized.toLowerCase().match(/\b\w+\b/g) || [];
+  if (!words.length) return undefined;
 
+  const tokens = Array.from(new Set(words.map(escapeRegex)));
   const regex = new RegExp(`(${tokens.join('|')})`, 'gi');
   const parts: Array<{ text: string; highlight: boolean }> = [];
   let lastIndex = 0;
@@ -43,12 +46,13 @@ const getHighlightedTextParts = (text: string, query: string) => {
 const SearchPage = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const query = searchParams.get('q') || '';
   const [reported, setReported] = useState(false);
+  const cat = searchParams.get('cat') || undefined;
+  const query = searchParams.get('q') || '';
 
   const { data, isLoading, isFetching } = useQuery({
-    queryKey: ['search', query],
-    queryFn: () => searchApi.search(query),
+    queryKey: ['search', query, cat],
+    queryFn: () => searchApi.search(query, 1, cat),
     enabled: !!query,
   });
 
@@ -72,8 +76,11 @@ const SearchPage = () => {
   return (
     <div className="page-container py-12">
       {/* Search */}
-      <div className="max-w-2xl mb-10">
+      <div className="max-w-2xl mb-6">
         <SearchBar autoFocus={!query} />
+      </div>
+      <div className="mb-6">
+        <CategoryTabs />
       </div>
 
       {query && (
@@ -99,7 +106,7 @@ const SearchPage = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
         >
           {results.map((q) => (
-            <div key={q._id} onClick={() => handleResultClick(q._id)}>
+            <div key={q._id} onClick={() => handleResultClick(q._id)} className="h-full">
               <QuestionCard
                 question={q}
                 highlightedTitleParts={getHighlightedTextParts(q.title, query)}

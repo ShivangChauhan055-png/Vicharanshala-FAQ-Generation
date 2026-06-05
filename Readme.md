@@ -250,7 +250,7 @@ npm run dev
 
 ---
 
-## 📁 Folder Structure
+## Folder Structure
 
 ```
 Vicharanshala-FAQ-Generation/

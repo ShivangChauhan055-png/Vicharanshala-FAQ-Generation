@@ -66,7 +66,7 @@ const HomePage = () => {
           transition={{ delay: 0.2 }}
           className="text-headline-lg-mobile md:text-display-lg font-bold text-on-surface max-w-3xl mb-6 tracking-tight text-balance"
         >
-          Find Answers.{' '}
+          Vicharanshala FAQ.{' '}
           <br />
           <span className="text-primary">Build Knowledge Together.</span>
         </motion.h1>

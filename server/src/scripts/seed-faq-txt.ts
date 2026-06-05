@@ -1,6 +1,10 @@
+import dotenv from 'dotenv';
+import path from 'path';
+
+dotenv.config({ path: path.join(__dirname, '../../.env') });
+
 import mongoose from 'mongoose';
 import fs from 'fs';
-import path from 'path';
 import { connectDB } from '../config/db';
 import { Category } from '../models/Category';
 import { Question } from '../models/Question';
